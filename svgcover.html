@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Шаблон обложки КБС</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="bootstrap-4.3.1/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/svgstyle.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="js/kbs.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container" style="padding-bottom: 30px;">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar my-navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#"><img class="logo" src="img/logotype.svg" alt="PrintSmile"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-primary" onclick="sendSVG();" id="button">Сохранить как SVG
+            файл</button>
+        <div class="row">
+            <div class=" col-lg-12">
+                <p class="info-t">
+                    <a href="https://ru.wikipedia.org/wiki/SVG" target="_blank" data-toggle="tooltip" data-placement="top" title="SVG Википедия"> SVG</a> – векторный формат файлов, используемый для высококачественных интерактивных веб-изображений.
+                </p>
+                <p class="info-t">SVG прекрасно открывается и редактируется в Adobe Illustrator и CorelDraw или другом редакторе, при этом не забудьте, что для печати необходим <b>*.PDF</b> файл
+                </p>
+            </div>
+        </div>
+
+
+        <div id="svg-download" style="display: none">
+            <svg width="450mm" height="350mm" xmlns="http://www.w3.org/2000/svg" id="artboard">
+                <rect x="0mm" y="0mm" stroke="red" stroke-dasharray="10" stroke-width="2" fill="#cccacc" id="bleed" />
+                <rect x="0mm" y="0mm"  fill="white" stroke-width="0" id="left-c" />
+                <rect x="0mm" y="0mm"  fill="white" stroke-width="0" id="right-c" />
+                <line x1="0mm" y1="0mm" x2="0mm" y2="0mm" stroke="yellow" stroke-dasharray="5" stroke-width="2"
+                    id="center-line-left" />
+                <line x1="0mm" y1="0mm" x2="0mm" y2="0mm" stroke="yellow" stroke-dasharray="5" stroke-width="2"
+                    id="center-line-right" />
+                <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-dasharray="5" stroke-width="2"
+                    id="left-line-big" />
+                <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-dasharray="5" stroke-width="2"
+                    id="right-line-big" />
+                <rect x="0mm" y="0mm" stroke="black" fill="#cccacc" stroke-width="0" id="koreshok" />
+                <text text-anchor="middle" dominant-baseline="central" id="first-obl">Передняя сторона обложки</text>
+                <text text-anchor="middle" dominant-baseline="central" id="second-obl">Задняя сторона обложки</text>
+                <g>
+                    <text x="0mm" y="12.5mm" id="format">Обрезной формат книги - </text>
+                    <text x="0mm" y="20mm" id="format-big">Обложка в развороте - </text>
+                    <line x1="0mm" y1="25mm" x2="40mm" y2="25mm" stroke="yellow" stroke-dasharray="5"
+                        stroke-width="2" />
+                    <text x="42mm" y="26.5mm" id="line-center">Линия центра обложки</text>
+                    <rect x="0mm" y="30mm" width="40mm" height="5mm" stroke="red" stroke-dasharray="10" stroke-width="2"
+                        fill="#cccacc" />
+                    <text x="42mm" y="34mm">Поле вылета изображения за обрез - 5 мм.</text>
+                    <rect x="0mm" y="40mm" width="40mm" height="5mm" stroke="black" fill="#cccacc" stroke-width="0" />
+                    <text x="42mm" y="44mm" id="koreshok-text">Корешок - </text>
+                </g>
+            </svg>
+
+
+
+
+
+        </div>
+        <div id="svg-preview">
+            <p>
+
+                <svg width="1350" height="1350" xmlns="http://www.w3.org/2000/svg" id="artboard-pre">
+                    <g class="animate2">
+                        <rect x="0" y="0" stroke="red" stroke-dasharray="10" stroke-width="2" fill="#cccacc"
+                            id="bleed-pre" class="animate2"data-toggle="tooltip" data-placement="top" title="Поле вылета за обрез (-5 мм)" 
+                            data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                            <rect x="0" y="115" width="55" height="15" stroke="red" stroke-dasharray="10" stroke-width="2"
+                            fill="#cccacc" class="animate2"data-toggle="tooltip" data-placement="right" title="Поле вылета за обрез (-5 мм)" 
+                            data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                        <text x="60" y="128" class="animate2">Поле вылета изображения за обрез - 5 мм.</text>
+                    </g>
+                    <g class="animate3">
+                        <rect x="0" y="138" width="55" height="15" stroke="black" fill="#cccacc" stroke-width="0" class="animate3"/>
+                        <text x="60" y="150" id="koreshok-text-pre" class="animate3">Корешок - </text>
+                        <rect x="0" y="0" stroke="black" fill="#cccacc" stroke-width="0" id="koreshok-pre" class="animate3" data-toggle="tooltip" data-placement="right" title="Корешок" 
+                        data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    </g>
+                    <rect x="0" y="0" fill="white" id="left-c-pre" class="animate" data-toggle="tooltip" data-placement="right" title="Задняя сторона обложки" 
+                    data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    <rect x="0" y="0" fill="white" id="right-c-pre" class="animate" data-toggle="tooltip" data-placement="left" title="Передняя сторона обложки" 
+                    data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    <line x1="0" y1="0" x2="0" y2="0" stroke="yellow" stroke-dasharray="5" stroke-width="5"
+                        id="center-line-left-pre" class="animate" data-toggle="tooltip" data-placement="right" title="Центральная линия обложки" 
+                        data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    <line x1="0" y1="0" x2="0" y2="0" stroke="yellow" stroke-dasharray="5" stroke-width="5"
+                        id="center-line-right-pre" class="animate" data-toggle="tooltip" data-placement="right" title="Центральная линия обложки" 
+                        data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+
+                    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-dasharray="5" stroke-width="5"
+                        id="left-line-big-pre" data-toggle="tooltip" data-placement="right" title="Линия биговки (-7 мм от корешка)" 
+                        data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    <line x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-dasharray="5" stroke-width="5"
+                        id="right-line-big-pre" data-toggle="tooltip" data-placement="right" title="Линия биговки (-7 мм от корешка)" 
+                        data-template='<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'/>
+                    <g>
+                        <text x="0" y="15" id="format-pre">Обрезной формат книги - </text>
+                        <text x="0" y="38" id="do-format-pre">Дообрезной формат обложки - </text>                        
+                        <text x="0" y="60" id="format-big-pre">Обложка в развороте - </text>
+                        <rect x="0" y="66" width="55" height="18" stroke="black" fill="#cccacc" stroke-width="0"/>
+                        <line x1="0" y1="75" x2="55" y2="75" stroke="yellow" stroke-dasharray="5" stroke-width="2" />                        
+                        <text x="60" y="80" id="line-center-pre">Линия центра обложки</text>
+                        <rect x="0" y="90" width="55" height="18" stroke="black" fill="#cccacc" stroke-width="0"/>
+                        <line x1="0" y1="100" x2="55" y2="100" stroke="black" stroke-dasharray="5" stroke-width="2" />                        
+                        <text x="60" y="105" id="line-center-pre">Линия биговки</text>
+
+
+                    </g>
+
+                </svg>
+            </p>
+        </div>
+        <div class="modal" tabindex="-1" role="dialog" id="modalBookParametr" style="display: none">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Выберите параметры книги КБС</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                    <label class="my-label-select" for="book-width">Формат изделия:</label>
+                                </div>
+                                <div class="col-10 col-sm-7 col-md-4 col-lg-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-12">
+                                            <select class="custom-select my-select form-control" id="formatbook">
+                                                <option value="1" selected>заказной</option>
+                                                <option value="2">A6</option>
+                                                <option value="3">A5 (146 x 206mm)</option>
+                                                <option value="4">A4 (208 x 293mm)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-5">
+                                            <input type="number" class="custom-select my-select" name="book-width" id="book-width" placeholder="шир. (мм)">
+                                        </div>
+                                        <div class="col-2">
+                                            <img class="x" src="img/x.svg" alt="" id='xb'>
+                                        </div>
+                                        <div class="col-5">
+                                            <input type="number" class="custom-select my-select" name="book-height" id="book-height" placeholder="выс. (мм)">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-3 offset-sm-0 col-4 offset-1">
+                                    <label class="my-label-select" for="count-list">Количество полос:</label>
+                                </div>
+                                <div class="col-3">
+                                    <input class="custom-select my-select" type="number" name="count-list" id="count-list" placeholder="полос">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input class="btn btn-danger" type="button" value="Полос должно быть кратно 2 !" id="alert" style="display: none">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                    <div class="form-check my-form-check">
+                                        <label class="form-check-label post-print" for="pb">Бумага блока</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 offset-sm-0 col-10 offset-1" id="pbb">
+                                    <select class="custom-select my-select form-control" name="paper_" id="paper_block">
+                                        <option value="0">Офсетная бумага 80 гр</option>
+                                        <option value="1">Офсетная бумага 100 гр</option>
+                                        <option value="2">Офсетная бумага 120 гр</option>
+                                        <option value="3">Офсетная бумага 160 гр</option>
+                                        <option value="4">Офсетная бумага 190 гр</option>
+                                        <option value="5">Меловка 115 гр</option>
+                                        <option value="6">Меловка 130 гр</option>
+                                        <option value="7">Меловка 150 гр</option>
+                                        <option value="8">Меловка 170 гр</option>
+                                        <option value="9">Меловка 200 гр</option>
+                                        <option value="10">СolorCopy 120 гр</option>
+                                        <option value="11">СolorCopy 160 гр</option>
+                                        <option value="12">СolorCopy 200 гр</option>
+                                        <option value="13">DNS 90гр</option>
+                                        <option value="14">DNS 100 гр</option>
+                                        <option value="15">DNS 120 гр</option>
+                                        <option value="16">DNS 135 гр</option>
+                                        <option value="17">DNS 160 гр</option>
+                                        <option value="18">DNS 200 гр</option>
+                                        <option value="19">BIOTOP 90гр</option>
+                                        <option value="20">BIOTOP 160гр</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal" id="close">Применить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="js/svgcreate.js"></script>
+                <script src="bootstrap-4.3.1/popper.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                <script>
+                    $(function() {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
+                </script>
+
+
+</body>

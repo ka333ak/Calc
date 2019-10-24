@@ -1,0 +1,53 @@
+.animate:hover {
+    fill: #ec008e73;
+    opacity: 1;
+    content: attr(data-title);
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    background: rgba(255, 255, 230, 0.9);
+}
+
+.animate2:hover {
+    fill: #ec0000;
+    opacity: 1;
+}
+
+#artboard-pre .animate3:hover {
+    fill: #004bec96;
+    opacity: 1;
+    content: attr(data-title);
+    /* Выводим текст */
+    position: absolute;
+    /* Абсолютное позиционирование */
+    left: 20%;
+    top: 30%;
+    /* Положение подсказки */
+    z-index: 1;
+    /* Отображаем подсказку поверх других элементов */
+    background: rgba(255, 255, 230, 0.9);
+}
+
+.text-info {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    z-index: 1;
+    background: rgba(19, 75, 197, 0.9);
+}
+
+.animate3:hover tspan {
+    font-family: Calibri, Tahoma, Geneva, sans-serif;
+    position: absolute;
+    left: 1em;
+    top: 2em;
+    z-index: 99;
+    margin-left: 0;
+    width: 250px;
+}
+
+.tooltip-inner {
+    background: orange;
+    color: black;
+    font-weight: bold;
+}

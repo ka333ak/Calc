@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Калькулятор PrintSmile</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="bootstrap-4.3.1/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="js/calc_list.js"></script>
+    <script src="js/calc_plotter.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/prezentation.js"></script>
+    <script src="js/broshure.js"></script>
+    <script src="js/kbs.js"></script>
+</head>
+
+<body>
+    <!-- ВСПЛЫВАЙКА -->
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast show" data-autohide="false">
+        <div class="toast-header">
+            <img src="img/exclam.png" class="rounded mr-2">
+            <strong class="mr-auto">Внимание</strong>
+            <small></small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true" id="toast-close" onclick="hideToast() ">&times;</span>
+              </button>
+        </div>
+        <div class="toast-body">
+            Калькулятор находится в ТЕСТОВОМ режиме.
+            <p>Возможны ошибки</p>
+        </div>
+    </div>
+    <!-- ВСПЛЫВАЙКА -->
+    <div class="container" style="padding-bottom: 30px;">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar my-navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#"><img class="logo" src="img/logotype.svg" alt="PrintSmile" onclick=" refreshOnServer()"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pt-sm-3 pt-md-4 pt-lg-5" id="navbarSupportedContent">
+                        <ul class="navbar-nav my-navbar-nav mr-auto d-md-block d-lg-none d-xl-none">
+                            <li class="nav-item active">
+                                <p id="heading01" data-id="01" class="type" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">Листовая печать
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p id="heading02" data-id="02" class="type collapsed" data-toggle="collapse" data-target="#collapse02" aria-expanded="false" aria-controls="collapse02">Плоттерная резка</p>
+                            </li>
+                            <li class="nav-item">
+                                <p id="heading03" data-id="03" class="type collapsed" data-toggle="collapse" data-target="#collapse03" aria-expanded="false" aria-controls="collapse03">Книги / Брошюры / Презентации</p>
+                            </li>
+                            <li class="nav-item">
+                                <p id="heading04" data-id="04" class="type collapsed" data-toggle="collapse" data-target="#collapse04" aria-expanded="false" aria-controls="collapse04">Блокноты</p>
+                            </li>
+                            <li class="nav-item">
+                                <p id="heading05" data-id="04" class="type collapsed" data-toggle="collapse" data-target="#collapse04" aria-expanded="false" aria-controls="collapse05">Квартальные календари</p>
+                            </li>
+                        </ul>
+                        <h1 class="ml-lg-auto d-none d-lg-block">Калькулятор</h1>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion" id="accordionCalc">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 menu d-none d-lg-block d-xl-block">
+                    <p id="heading01" data-id="01" class="type" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">Листовая печать</p>
+                    <p id="heading02" data-id="02" class="type collapsed" data-toggle="collapse" data-target="#collapse02" aria-expanded="false" aria-controls="collapse02">Плоттерная резка</p>
+                    <p id="heading03" data-id="03" class="type collapsed" data-toggle="collapse" data-target="#collapse03" aria-expanded="false" aria-controls="collapse03">Книги / Брошюры / Презентации</p>
+                    <p id="heading04" data-id="04" class="type collapsed" data-toggle="collapse" data-target="#collapse04" aria-expanded="false" aria-controls="collapse04">Блокноты</p>
+                    <p id="heading05" data-id="05" class="type collapsed" data-toggle="collapse" data-target="#collapse05" aria-expanded="false" aria-controls="collapse05">Квартальные календари</p>
+                </div>
+                <div class="col-lg-9 offset-lg-1 tabl" id="plotter">
+                    <div id="collapse01" class="collapse show" aria-labelledby="heading01" data-parent="#accordionCalc">
+                        <h5>Листовая печать</h5>
+                        <div class="row">
+                            <div class="col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="item_01">Формат изделия:</label>
+                            </div>
+                            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+                                <div class="row no-gutters">
+                                    <div class="col-9">
+                                        <select class="custom-select my-select form-control" name="format" id="format">
+                                                    <option value="1" selected>заказной</option>
+                                                    <option value="2" >A6</option>
+                                                    <option value="3">A5</option>
+                                                    <option value="4">A4</option>
+                                                    <option value="5">A3</option>
+                                                </select>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="item_01" id="item_01" placeholder="мм">
+                                    </div>
+                                    <div class="col-2">
+                                        <img class="x" src="img/x.svg" alt="" id="x">
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="item_02" id="item_02" placeholder="мм">
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="edition01">Тираж:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" name="edition01" id="edition01" placeholder="шт.">
+                            </div>
+                            <div class="col-3 offset-1 offset-lg-1 offset-md-1 offset-sm-0">
+                                <label class="my-label-select" for="matherial">Цветность печати:</label>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 col-4">
+                                <select class="custom-select my-select form-control" name="color_print" id="color_print">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="without_rezka" value="" id="without_rezka">
+                                    <label class="form-check-label" for="without_rezka">Без резки</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="one_rez" value="" id="one_rez">
+                                    <label class="form-check-label" for="one_rez">В один рез</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="detal" value="" id="detal">
+                                    <label class="form-check-label" for="detal">Детализация</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="attention">
+                                    <p id="zadanie_01" class="zadanie">Детализация задания.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 offset-sm-0 col-3 offset-2">
+                                <label class="my-label-select" for="paper">Бумага:</label>
+                            </div>
+                            <div class="w-100 d-block d-sm-none"></div>
+                            <div class="col-md-6 col-sm-9 offset-sm-0 col-8 offset-2">
+                                <div class="alert alert-danger" id="alertpaper" style="display: none;">.
+                                </div>
+                                <select class="custom-select my-select form-control" name="paper" id="paper">
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="pp" value="" id="pp">
+                                    <label class="form-check-label post-print" for="pp">ПОСТПЕЧАТЬ</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="print-vizible" id="postpressblock">
+                            <div class="row">
+                                <div class="col-lg-2 offset-sm-0 col-3 offset-2" style="margin-bottom: 5px;">
+                                    <label class="my-label-select" for="matherial">Ламинация:</label>
+                                </div>
+                                <div class="w-100 d-block d-sm-none"></div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="lamination" id="lamination">
+                                        <option value="0" selected>Нет</option>
+                                        <option value="1">40 мкм глянцевая</option>
+                                        <option value="2">75 мкм глянцевая</option>
+                                        <option value="3">125 мкм глянцевая</option>
+                                        <option value="4">250 мкм глянцевая</option>
+                                        <option value="5">43 мкм матовая</option>
+                                        <option value="6">75 мкм матовая</option>
+                                        <option value="7">125 мкм матовая</option>
+                                        <option value="8">30 мкм SOFT SKIN</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-sm-3 offset-sm-0 col-4 offset-4 choose_lo">
+                                    <select class="custom-select my-select form-control" name="layer_out" id="layer_out">
+                                        <option value="1" selected>1 + 0</option>
+                                        <option value="2">1 + 1</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_02" id="sel_02">
+                                        <option value="0" selected>Биговка/Перфорация</option>
+                                        <option value="1">1 биг</option>
+                                        <option value="2">2 бига</option>
+                                        <option value="3">3 бига</option>
+                                        <option value="4">4 бига</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_06" id="sel_06">
+                                        <option value="0" selected>Тиснение</option>
+                                        <option value="1">1 удар</option>
+                                        <option value="2">2 удара</option>
+                                        <option value="3">3 удара</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_04" id="sel_04">
+                                        <option value="0" selected>Сверление</option>
+                                        <option value="1"> 1 отверстие</option>
+                                        <option value="2"> 2 отверстия</option>
+                                        <option value="3"> 3 отверстия</option>
+                                        <option value="4"> 4 отверстия</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_03" id="sel_03">
+                                            <option value="0" selected>Фальцовка</option>
+                                            <option value="1">1 фальц</option>
+                                            <option value="2">2 фальца</option>
+                                            <option value="3">3 фальца</option>
+                                            <option value="4">4 фальца</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <div class="form-check my-form-check">
+                                        <input class="form-check-input" type="checkbox" name="person_num" value="" id="person_num">
+                                        <label class="form-check-label" for="person_num">Персонализация</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_05" id="sel_05">
+                                        <option value="0" selected>Кругление</option>
+                                        <option value="1"> 1 угол</option>
+                                        <option value="2"> 2 угла</option>
+                                        <option value="3"> 3 угла</option>
+                                        <option value="4"> 4 угла</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-lg-4 col-sm-6 offset-sm-0 col-8 offset-2">
+                                    <select class="custom-select my-select form-control" name="sel_06" id="sel_06">
+                                        <option value="0" selected>Двухсторонний скотч</option>
+                                        <option value="1">4 мм - 1 линия</option>
+                                        <option value="2">4 мм - 2 линии</option>
+                                        <option value="3">4 мм - 3 линии</option>
+                                        <option value="4">4 мм - 4 линии</option>
+                                        <option value="5">8 мм - 1 линия</option>
+                                        <option value="6">8 мм - 2 линии</option>
+                                        <option value="7">8 мм - 3 линии</option>
+                                        <option value="8">8 мм - 4 линии</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2 col-4">
+                                <p class="cost">ИТОГО:</p>
+                            </div>
+                            <div class="col-md-3 col-5">
+                                <p class="cost-value" id="itog_price01">0<img class="rub" src="img/rub.svg"></p>
+                                <select class="custom-select my-select form-control" name="pur_02" id="pur_02">
+                                    <option selected>Розница</option>
+                                    <option value="2">Партнерка</option>
+                                    <option value="3">Минималка</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1">
+                                <p class="info">Наценка</p>
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <p class="value">10%</p>
+                                        <p class="value" id="m10">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="value">20%</p>
+                                        <p class="value" id="m20">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="value">30%</p>
+                                        <p class="value" id="m30">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="collapse02" class="collapse" aria-labelledby="heading02" data-parent="#accordionCalc">
+                        <h5>Плоттерная резка</h5>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-3 offset-sm-0 col-4 offset-1">
+                                <label class="my-label-select" for="matherial">Материал:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-12 offset-sm-0 col-10 offset-1">
+                                <select class="custom-select my-select form-control" name="matherial" id="matherial"></select>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-lg-2 col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="item-width">Формат изделия:</label>
+                            </div>
+                            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+                                <div class="row no-gutters">
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="item-width" id="item-width" placeholder="мм">
+                                    </div>
+                                    <div class="col-2">
+                                        <img class="x" src="img/x.svg" alt="">
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="item-height" id="item-height" placeholder="мм">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="stickerpac" value="0" id="stickerpac">
+                                    <label class="form-check-label" for="stickerpac">Стикерпак</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="detal" value="" id="detal">
+                                    <label class="form-check-label" for="detal">Детализация</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="attention">
+                                    <p id="zadanie_02" class="zadanie">Детализация задания.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="edition02">Тираж:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" name="edition02" id="edition02" placeholder="шт.">
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-lg-5 col-md-6 col-sm-7 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="rezka-format" value="" id="rezka-format">
+                                    <label class="form-check-label" for="rezka-format">Последующая
+                                        резка в формат</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-5 offset-sm-0 col-8 offset-2">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="laminacia" value="" id="laminacia">
+                                    <label class="form-check-label" for="laminacia">Ламинация</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-4">
+                                <p class="cost">ИТОГО:</p>
+                            </div>
+                            <div class="col-md-3 col-5">
+                                <p class="cost-value" id="CostFinal">0<img class="rub" src="img/rub.svg"></p>
+                                <select class="custom-select my-select form-control" name="purchase" id="purchase">
+                                    <option value="1" selected>Розница</option>
+                                    <option value="2">Партнерка</option>
+                                    <option value="3">Минималка</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1">
+                                <p class="info">Наценка</p>
+                                <div class="row no-gutters">
+                                    <div class="col-4">
+                                        <p class="value">10%</p>
+                                        <p class="value" id="m10S">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="value">20%</p>
+                                        <p class="value" id="m20S">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="value">30%</p>
+                                        <p class="value" id="m30S">0<img class="rub" src="img/rub-light.svg"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="collapse03" class="collapse" aria-labelledby="heading03" data-parent="#accordionCalc">
+                        <h5>Книги / Брошюры / Презентации</h5>
+                        <div class="row">
+                            <div class="col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="pereplet">Переплет:</label>
+                            </div>
+                            <div class="col-md-6 col-sm-9 offset-sm-0 col-6 offset-0">
+                                <select class="custom-select my-select form-control" name="pereplet" id="pereplet">
+                                        <option value="0">Брошюра на скобе</option>
+                                        <option value="1">Презентация на пружине</option>
+                                        <option value="2">Книга КБС</option>
+                                        <option value="3">Книга 7БЦ</option>
+                                        <option value="4">Книга 7Б</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="book-width">Формат изделия:</label>
+                            </div>
+                            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+                                <div class="row no-gutters">
+                                    <div class="col-9">
+                                        <select class="custom-select my-select form-control" id="formatbook">
+                                                            <option value="1" selected>заказной</option>
+                                                            <option value="2" >A6</option>
+                                                            <option value="3">A5</option>
+                                                            <option value="4">A4</option>
+                                                            <option value="5">A3</option>
+                                                        </select>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="book-width" id="book-width" placeholder="шир. (мм)">
+                                    </div>
+                                    <div class="col-2">
+                                        <img class="x" src="img/x.svg" alt="" id='xb'>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="book-height" id="book-height" placeholder="выс. (мм)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="count-list">Количество полос блока:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" name="count-list" id="count-list" placeholder="шт.">
+                                <div class="alert alert-danger" id="alertpolos" style="display: none;">.
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-1 offset-sm-0 col-1 offset-1">
+                                <input class="custom-select my-select" for="edition03" id="listofblock" style="display:none" placeholder="листов." disabled></label>
+                            </div>
+                            <div class="col-xl-1 col-sm-2 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="edition03">Тираж:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" name="edition03" id="edition03" placeholder="шт.">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="pc" value="" id="pc">
+                                    <label class="form-check-label post-print" for="pc">ОБЛОЖКА</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_01" id="bpc">
+                                <label class="my-label-select" for="paper_cover">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_cover" id="paper_cover">
+                                   
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_01" id="pbc1">
+                                <label class="my-label-select" for="color_obl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_obl" id="color_obl">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 block_01" id="pbc2">
+                                <label class="my-label-select" for="laminacia_cover">Ламинация:</label>
+                                <select class="custom-select my-select form-control" name="laminacia_cover" id="laminacia_cover">
+                                    <option value="0" selected>Нет</option>
+                                    <option value="1">40 мкм глянцевая</option>
+                                    <option value="2">75 мкм глянцевая</option>
+                                    <option value="3">125 мкм глянцевая</option>
+                                    <option value="4">250 мкм глянцевая</option>
+                                    <option value="5">43 мкм матовая</option>
+                                    <option value="6">75 мкм матовая</option>
+                                    <option value="7">125 мкм матовая</option>
+                                    <option value="8">30 мкм SOFT SKIN</option>
+                                </select>
+                            </div>
+                            <div class="alert alert-danger" id="alertform" style="display: none;">.</div>
+                            <div class="offset-xl-0 col-lg-2 offset-lg-8 col-md-2 offset-md-8 col-sm-3 offset-sm-0 col-3 offset-5 block_01 lam_cover">
+                                <select class="custom-select my-select form-control" name="lamb_cov" id="lamb_cov">
+                                    <option value="1" selected>1 + 0</option>
+                                    <option value="2">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="pb" value="" id="pb">
+                                    <label class="form-check-label post-print" for="pb">БЛОК</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_02" id="pbb">
+                                <label class="my-label-select" for="paper_block">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_block" id="paper_block">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_02" id="pbb1">
+                                <label class="my-label-select" for="color_bl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_bl" id="color_bl">
+                                    <option id="color_bl1" value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option id="color_bl2" value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 block_02" id="pbb2">
+                                <label class="my-label-select" for="laminacia_block" id="lamBlock">Ламинация:</label>
+                                <select class="custom-select my-select form-control" name="laminacia_block" id="laminacia_block">
+                                    <option value="0" selected>Нет</option>
+                                    <option value="1">40 мкм глянцевая</option>
+                                    <option value="2">75 мкм глянцевая</option>
+                                    <option value="3">125 мкм глянцевая</option>
+                                    <option value="4">43 мкм матовая</option>
+                                    <option value="5">75 мкм матовая</option>
+                                    <option value="6">125 мкм матовая</option>
+                                    <option value="7">30 мкм SOFT SKIN</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <div class="row" id="rowforz">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check" id="forzblock">
+                                    <input class="form-check-input" type="checkbox" name="forz" value="" id="forz">
+                                    <label class="form-check-label post-print" for="forz" id="forzlabel">ФОРЗАЦ</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_03" id="forzblockall">
+                                <label class="my-label-select" for="paper_for" id="paper-for-label">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_for" id="paper_for">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_03" id='forz2'>
+                                <label class="my-label-select" for="color_for">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_for" id="color_for">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 block_03" id='forz3'>
+                                <label class="my-label-select" for="color_for">Ламинация</label>
+                                <select class="custom-select my-select form-control" id="lam_for">
+                                        <option value="0" selected>Нет</option>
+                                        <option value="1">40 мкм глянцевая</option>
+                                        <option value="2">75 мкм глянцевая</option>
+                                        <option value="3">125 мкм глянцевая</option>
+                                        <option value="4">250 мкм глянцевая</option>
+                                        <option value="5">43 мкм матовая</option>
+                                        <option value="6">75 мкм матовая</option>
+                                        <option value="7">125 мкм матовая</option>
+                                        <option value="8">30 мкм SOFT SKIN</option>
+                                    </select>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 offset-sm-0 col-4 offset-4 choose_lo block_03" id='forz4'>
+                                <label class="my-label-select" for="color_for"></label>
+                                <select class="custom-select my-select form-control" id="lam_for_side">
+                                    <option value="1" selected>1 + 0</option>
+                                    <option value="2">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- пружина -->
+                        <div id="pruz" style="display: none">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked">
+                                <label class="form-check-label" for="inlineRadio1">Пружина по короткой стороне</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="2">
+                                <label class="form-check-label" for="inlineRadio2">Пружина по длинной стороне</label>
+                            </div>
+                        </div>
+                        <!-- пружина -->
+                        <div class="row">
+                            <div class="col-xl-7 col-md-8 col-sm-7 offset-sm-0 col-5 offset-1">
+                                <div class="form-check my-form-check">
+                                    <label class="form-check-label post-print" for="vkladka">ВКЛАДКА</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+                                <label class="my-label-select" for="count-vkladka">Количество полос:</label>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-2">
+                                <input class="custom-select my-select" type="number" name="count-vkladka" id="count-vkladka" placeholder="шт.">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_04">
+                                <label class="my-label-select" for="paper_vkl">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_vkl" id="paper_vkl">
+                                    <option selected>Офсетная бумага 80 гр A3 iq economy</option>
+                                    <option value="2">Калька A4</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_04">
+                                <label class="my-label-select" for="color_vkl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_vkl" id="color_vkl">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row pt-md-3 pt-sm-3">
+                            <div class="col-md-2 col-sm-3 col-4">
+                                <p class="cost">ИТОГО:</p>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-5">
+                                <p class="cost-value" id="CostFinal_price">0<img class="rub" src="img/rub.svg"></p>
+                            </div>
+                            <div class="col-md-3 col-sm-5 offset-sm-0 col-5 offset-4">
+                                <select class="custom-select my-select form-control" name="pr_book" id="pr_book">
+                                    <option value="1" selected>Розница</option>
+                                    <option value="2">Партнерка</option>
+                                    <option value="3">Минималка</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 offset-md-0 col-8 offset-2">
+
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="detal_book" value="" id="detal_book">
+                                    <label class="form-check-label" for="detal_book">Детализация</label>
+                                </div>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <div class="attention">
+                                    <p id="zadanie_03" class="zadanie">Детализация задания.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse04" class="collapse" aria-labelledby="heading04" data-parent="#accordionCalc">
+                        <script src="js/blocknote.js"></script>
+                        <h5>БЛОКНОТЫ</h5>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="block-width">Формат изделия:</label>
+                            </div>
+                            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+                                <div class="row no-gutters">
+                                    <div class="col-9">
+                                        <select class="custom-select my-select form-control" id="formatblock">
+                                                            <option value="1" selected>заказной</option>
+                                                            <option value="2" >A6</option>
+                                                            <option value="3">A5</option>
+                                                            <option value="4">A4</option>
+                                                            <option value="5">A3</option>
+                                                        </select>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="book-width" id="block-width" placeholder="шир. (мм)">
+                                    </div>
+                                    <div class="col-2">
+                                        <img class="x" src="img/x.svg" alt="" id='xb2'>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="custom-select my-select" name="book-height" id="block-height" placeholder="выс. (мм)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="count-list-block">Количество листов блоке:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" id="count-list-block" placeholder="шт.">
+                                <div class="alert alert-danger" id="alertpolos-block" style="display: none;">.
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-sm-2 offset-sm-0 col-3 offset-1">
+                                <label class="my-label-select" for="edition04">Тираж:</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-6">
+                                <input class="custom-select my-select" type="number" name="edition04" id="edition04" placeholder="шт.">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="pc-block">
+                                    <label class="form-check-label post-print" for="pc">ОБЛОЖКА</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pbc">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_01" id="bpc-block">
+                                <label class="my-label-select" for="paper_cover">Бумага:</label>
+                                <select class="custom-select my-select form-control" id="paper_cover_block">
+                                   
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_01" id="pbc1_block">
+                                <label class="my-label-select" for="color_obl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_obl" id="color_obl_block">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 block_01" id="pbc2_block">
+                                <label class="my-label-select" for="laminacia_cover">Ламинация:</label>
+                                <select class="custom-select my-select form-control" name="laminacia_cover" id="laminacia_cover_block">
+                                    <option value="0" selected>Нет</option>
+                                    <option value="1">40 мкм глянцевая</option>
+                                    <option value="2">75 мкм глянцевая</option>
+                                    <option value="3">125 мкм глянцевая</option>
+                                    <option value="4">250 мкм глянцевая</option>
+                                    <option value="5">43 мкм матовая</option>
+                                    <option value="6">75 мкм матовая</option>
+                                    <option value="7">125 мкм матовая</option>
+                                    <option value="8">30 мкм SOFT SKIN</option>
+                                </select>
+                            </div>
+                            <div class="alert alert-danger" id="alertform" style="display: none;">.</div>
+                            <div class="offset-xl-0 col-lg-2 offset-lg-8 col-md-2 offset-md-8 col-sm-3 offset-sm-0 col-3 offset-5 block_01 lam_cover_block">
+                                &nbsp;<select class="custom-select my-select form-control" name="lamb_cov" id="lamb_cov-block">
+                                    <option value="1" selected>1 + 0</option>
+                                    <option value="2">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="pb" value="" id="pb-block">
+                                    <label class="form-check-label post-print" for="pb">БЛОК</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_02" id="pbb-block">
+                                <label class="my-label-select" for="paper_block">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_block" id="paper_block-block">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_02" id="pbb1-block">
+                                <label class="my-label-select" for="color_bl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_bl" id="color_bl-block">
+                                    <option id="color_bl1" value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option id="color_bl2" value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                    <option value="5">без печати</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" id="rowforz">
+                            <div class="col-sm-12 offset-sm-0 col-10 offset-1">
+                                <div class="form-check my-form-check" id="forzblock">
+                                    <input class="form-check-input" type="checkbox" name="forz" value="" id="forz-blocknote">
+                                    <label class="form-check-label post-print" for="forz" id="forzlabel">ПОДЛОЖКА</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_03" id="forzblockallblocknote">
+                                <label class="my-label-select" for="paper_for_bl" id="paper-for-label">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_for_bl" id="paper_for_bl">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_03" id='forz2blocknote'>
+                                <label class="my-label-select" for="color_for">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_for_blocknote" id="color_for_blocknote">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 block_03" id='forz3blocknote'>
+                                <label class="my-label-select" for="color_for">Ламинация</label>
+                                <select class="custom-select my-select form-control" id="lam_for_blocknote">
+                                        <option value="0" selected>Нет</option>
+                                        <option value="1">40 мкм глянцевая</option>
+                                        <option value="2">75 мкм глянцевая</option>
+                                        <option value="3">125 мкм глянцевая</option>
+                                        <option value="4">250 мкм глянцевая</option>
+                                        <option value="5">43 мкм матовая</option>
+                                        <option value="6">75 мкм матовая</option>
+                                        <option value="7">125 мкм матовая</option>
+                                        <option value="8">30 мкм SOFT SKIN</option>
+                                    </select>
+                            </div>
+                            <div class="col-lg-2 col-sm-3 offset-sm-0 col-4 offset-4 choose_lo block_03" id='forz4'>
+                                <label class="my-label-select" for="color_for"></label>
+                                <select class="custom-select my-select form-control" id="lam_for_blocknote_side">
+                                    <option value="1" selected>1 + 0</option>
+                                    <option value="2">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- пружина -->
+                        <div id="pruz" style="display: none">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked">
+                                <label class="form-check-label" for="inlineRadio1">Пружина по короткой стороне</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="2">
+                                <label class="form-check-label" for="inlineRadio2">Пружина по длинной стороне</label>
+                            </div>
+                        </div>
+                        <!-- пружина -->
+                        <div class="row">
+                            <div class="col-xl-7 col-md-8 col-sm-7 offset-sm-0 col-5 offset-1">
+                                <div class="form-check my-form-check">
+                                    <label class="form-check-label post-print" for="vkladka">ВКЛАДКА</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+                                <label class="my-label-select" for="count-vkladka">Количество полос:</label>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-2">
+                                <input class="custom-select my-select" type="number" name="count-vkladka" id="count-vkladka" placeholder="шт.">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-6 offset-md-0 col-sm-9 offset-sm-0 col-10 offset-1 block_04">
+                                <label class="my-label-select" for="paper_vkl">Бумага:</label>
+                                <select class="custom-select my-select form-control" name="paper_vkl" id="paper_vkl">
+                                    <option selected>Офсетная бумага 80 гр A3 iq economy</option>
+                                    <option value="2">Калька A4</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 offset-sm-0 col-4 offset-1 block_04">
+                                <label class="my-label-select" for="color_vkl">Цветность:</label>
+                                <select class="custom-select my-select form-control" name="color_vkl" id="color_vkl">
+                                    <option value="1" selected>4 + 0</option>
+                                    <option value="2">4 + 4</option>
+                                    <option value="3">1 + 0</option>
+                                    <option value="4">1 + 1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row pt-md-3 pt-sm-3">
+                            <div class="col-md-2 col-sm-3 col-4">
+                                <p class="cost">ИТОГО:</p>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-5">
+                                <p class="cost-value" id="CostFinal_price">0<img class="rub" src="img/rub.svg"></p>
+                            </div>
+                            <div class="col-md-3 col-sm-5 offset-sm-0 col-5 offset-4">
+                                <select class="custom-select my-select form-control" name="pr_blocknote" id="pr_blocknote">
+                                    <option value="1" selected>Розница</option>
+                                    <option value="2">Партнерка</option>
+                                    <option value="3">Минималка</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 offset-md-0 col-8 offset-2">
+
+                                <div class="form-check my-form-check">
+                                    <input class="form-check-input" type="checkbox" name="detal_book" value="" id="detal_book">
+                                    <label class="form-check-label" for="detal_book">Детализация</label>
+                                </div>
+                            </div>
+                            <div class="col-10 offset-1">
+                                <div class="attention">
+                                    <p id="zadanie_03" class="zadanie">Детализация задания.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse05" class="collapse" aria-labelledby="heading05" data-parent="#accordionCalc">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="bootstrap-4.3.1/dist/js/bootstrap.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

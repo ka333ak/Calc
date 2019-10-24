@@ -1,0 +1,620 @@
+[{
+        "name": "Меловка матовая 115 гр",
+        "cost": 0.020125,
+        "thickness": 0.09,
+        "weight": 0.115,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка мат/глянец 130 гр",
+        "cost": 0.02275,
+        "thickness": 0.11,
+        "weight": 0.13,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка матовая 150 гр",
+        "cost": 0.02625,
+        "thickness": 0.13,
+        "weight": 0.15,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка мат/глянец 170 гр",
+        "cost": 0.02975,
+        "thickness": 0.14,
+        "weight": 0.17,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка матовая 200 гр",
+        "cost": 0.03605,
+        "thickness": 0.19,
+        "weight": 0.2,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка матовая 250 гр",
+        "cost": 0.0450625,
+        "thickness": 0,
+        "weight": 0.25,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка мат/глянец 300 гр",
+        "cost": 0.054075,
+        "thickness": 0,
+        "weight": 0.3,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "Меловка матовая 350 гр",
+        "cost": 0.06615,
+        "thickness": 0,
+        "weight": 0.35,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "EUR"
+    },
+    {
+        "name": "СolorCopy 100 гр",
+        "cost": 2.16,
+        "thickness": 0.106,
+        "weight": 0.1,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 120 гр",
+        "cost": 2.8,
+        "thickness": 0.126,
+        "weight": 0.12,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 160 гр",
+        "cost": 4.4,
+        "thickness": 0.166,
+        "weight": 0.16,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 200 гр",
+        "cost": 6.48,
+        "thickness": 0.2,
+        "weight": 0.2,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 250 гр",
+        "cost": 7.6,
+        "thickness": 0.25,
+        "weight": 0.25,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 300 гр",
+        "cost": 9.5,
+        "thickness": 0.3,
+        "weight": 0.3,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    }, {
+        "name": "СolorCopy 300 гр",
+        "cost": 9.5,
+        "thickness": 0.3,
+        "weight": 0.3,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "СolorCopy 350 гр",
+        "cost": 10.7,
+        "thickness": 0.345,
+        "weight": 0.35,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 90гр SRA3",
+        "cost": 2.25,
+        "thickness": 0,
+        "weight": 0.09,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 100 гр SRA3",
+        "cost": 2.5,
+        "thickness": 0.106,
+        "weight": 0.1,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 120 гр SRA3",
+        "cost": 2.85,
+        "thickness": 0.14,
+        "weight": 0.12,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 135 гр SRA3",
+        "cost": 3.22,
+        "thickness": 0.126,
+        "weight": 0.135,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 160 гр SRA3",
+        "cost": 3.7,
+        "thickness": 0.166,
+        "weight": 0.16,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 200 гр SRA3",
+        "cost": 5.1,
+        "thickness": 0.2,
+        "weight": 0.2,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 250 гр SRA3",
+        "cost": 6.42,
+        "thickness": 0.245,
+        "weight": 0.25,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "DNS 300 гр SRA3",
+        "cost": 6.5,
+        "thickness": 0.3,
+        "weight": 0.3,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "BIOTOP 90гр SRA3",
+        "cost": "",
+        "thickness": 0,
+        "weight": 0.09,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "BIOTOP 160гр SRA3",
+        "cost": 4.49,
+        "thickness": 0,
+        "weight": 0.16,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "BIOTOP 300гр SRA3",
+        "cost": 8.5,
+        "thickness": 0,
+        "weight": 0.3,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "iq color pale 80гр А4",
+        "cost": 1.1,
+        "thickness": 0.1,
+        "weight": 0.08,
+        "W": 210,
+        "H": 297,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 65 гр А3 ГОЗНАК",
+        "cost": 0.72,
+        "thickness": 0.082,
+        "weight": 0.065,
+        "W": 297,
+        "H": 420,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 80 гр А3 iq economy",
+        "cost": 1.06,
+        "thickness": 0.1,
+        "weight": 0.08,
+        "W": 297,
+        "H": 420,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 80 гр  Сыктывкар",
+        "cost": 1.29,
+        "thickness": 0.1,
+        "weight": 0.08,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 100 гр  Сыктывкар",
+        "cost": 1.45,
+        "thickness": 0.135,
+        "weight": 0.1,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 120 гр Сыктывкар",
+        "cost": 1.6,
+        "thickness": 0.15,
+        "weight": 0.12,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 160 гр Сыктывкар",
+        "cost": 2,
+        "thickness": 0,
+        "weight": 0.16,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Офсетная бумага 190 гр Сыктывкар",
+        "cost": 2.4,
+        "thickness": 0,
+        "weight": 0.19,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Лен слоновая кость 120гр ZETA 330х487мм",
+        "cost": 10.5,
+        "thickness": 0,
+        "weight": 0.12,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Лен слоновая кость 260гр ZETA",
+        "cost": 36,
+        "thickness": 0,
+        "weight": 0.26,
+        "W": 450,
+        "H": 640,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Лен белый 270гр TOP STYLE SRA3",
+        "cost": 33.16,
+        "thickness": 0,
+        "weight": 0.27,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Verona новый лен сл.кость 250гр.",
+        "cost": 17.51,
+        "thickness": 0,
+        "weight": 0.25,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "CONSTELLATION SNOW LIME 280гр 330х487мм",
+        "cost": 22,
+        "thickness": 0,
+        "weight": 0.28,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Madjestic Белый мрамор 290 гр 330х488",
+        "cost": 39,
+        "thickness": 0,
+        "weight": 0.29,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "ToucheCover белый 301гр 330х488",
+        "cost": 96,
+        "thickness": 0,
+        "weight": 0.301,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Картон Deligloss 310гр SRA3",
+        "cost": 7.1,
+        "thickness": 0,
+        "weight": 0.31,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Mohawk I-Tone Antique Vellum straw 118гр",
+        "cost": 10.8,
+        "thickness": 0,
+        "weight": 0.118,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Mohawk I-Tone Antique Vellum straw 298гр",
+        "cost": 38.88,
+        "thickness": 0,
+        "weight": 0.298,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Rives Trad. Natural white 320гр",
+        "cost": 37.8,
+        "thickness": 0,
+        "weight": 0,
+        "W": 330,
+        "H": 483,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "colorplan (цветная) 270гр",
+        "cost": 50.26,
+        "thickness": 0,
+        "weight": 0.27,
+        "W": 640,
+        "H": 970,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "colorplan Ice White (белый) 270гр",
+        "cost": 29.28,
+        "thickness": 0,
+        "weight": 0.27,
+        "W": 640,
+        "H": 970,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "BURANO Luce интенсив 51 ярко-жёлтый 250гр",
+        "cost": 37.04,
+        "thickness": 0,
+        "weight": 0.25,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Top Style 200г мрамор белый SRA3",
+        "cost": 23.68,
+        "thickness": 0,
+        "weight": 0.2,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "RUSTICUS 2-ст.тисн.фетр, серый, 240 г/м2",
+        "cost": 33.8,
+        "thickness": 0,
+        "weight": 0.24,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "zeta гладкая слоновая кость 260гр",
+        "cost": 20.58,
+        "thickness": 0,
+        "weight": 0.26,
+        "W": 450,
+        "H": 640,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "CONSTELLATION IVORY E/E E08 TELA FINE 240",
+        "cost": 29,
+        "thickness": 0,
+        "weight": 0.24,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "ICELAZER лен белый 300гр",
+        "cost": 24.5,
+        "thickness": 0,
+        "weight": 0.3,
+        "W": 320,
+        "H": 450,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "TINTORETTO CREMA 250гр",
+        "cost": 31.05,
+        "thickness": 0,
+        "weight": "",
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "TINTORETTO CREMA 300гр",
+        "cost": 0.612,
+        "thickness": 0,
+        "weight": "",
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "USD"
+    },
+    {
+        "name": "Бумага заказчика",
+        "cost": 0,
+        "thickness": 0,
+        "weight": 0,
+        "W": 700,
+        "H": 1000,
+        "sticker": false,
+        "currency": "RUB"
+    },
+    {
+        "name": "Самоклейка Adestor полуглянец",
+        "cost": 10,
+        "thickness": 0,
+        "weight": 0,
+        "W": 500,
+        "H": 700,
+        "sticker": true,
+        "currency": "RUB"
+    },
+    {
+        "name": "Самоклейка UPM extrapermanent",
+        "cost": 15,
+        "thickness": 0,
+        "weight": 0,
+        "W": 500,
+        "H": 700,
+        "sticker": true,
+        "currency": "RUB"
+    },
+    {
+        "name": "Полиэстровая пленка",
+        "cost": 50,
+        "thickness": 0,
+        "weight": 0,
+        "W": 320,
+        "H": 450,
+        "sticker": true,
+        "currency": "RUB"
+    },
+    {
+        "name": "Полиэстровая пленка (серебро)",
+        "cost": 60,
+        "thickness": 0,
+        "weight": 0,
+        "W": 320,
+        "H": 450,
+        "sticker": true,
+        "currency": "RUB"
+    },
+    {
+        "name": "Виниловая пленка",
+        "cost": 70,
+        "thickness": 0,
+        "weight": 0,
+        "W": 320,
+        "H": 450,
+        "sticker": true,
+        "currency": "RUB"
+    }
+]

@@ -1,0 +1,532 @@
+/* --------------- reset.css --------------- */
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+em,
+
+/*img, */
+
+strong,
+sub,
+sup,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 100%;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    outline: none;
+}
+
+a.disabled {
+    pointer-events: none;
+    /* делаем ссылку некликабельной */
+    cursor: default;
+    /* устанавливаем курсор в виде стрелки */
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+td img {
+    vertical-align: top;
+}
+
+input,
+select,
+button,
+textarea {
+    margin: 0;
+    font-size: 100%;
+    outline: none;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {}
+
+input[type="checkbox"] {
+    vertical-align: bottom;
+}
+
+input[type="radio"] {
+    vertical-align: text-bottom;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    text-align: center;
+}
+
+
+/* --------------- Basic ---------*/
+
+html {
+    min-height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-width: 320px;
+    background-image: url("../img/calc.svg");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: top;
+    background-size: 1000px;
+}
+
+a,
+a:visited {
+    color: #767676;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2e8ed2;
+    text-decoration: none;
+}
+
+a:focus,
+a:active {
+    color: #C5434E;
+    text-decoration: none;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+.clr {
+    clear: both;
+}
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rubik', sans-serif;
+}
+
+button::focus-inner {
+    border: none;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.my-navbar {}
+
+.logo {
+    width: 150px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}
+
+#accordionCalc {}
+
+.navbar .collapse .my-navbar-nav {}
+
+.navbar .collapse .my-navbar-nav .nav-item {
+    float: none;
+}
+
+#collapse01 {
+    padding-bottom: 50px;
+}
+
+.menu {
+    margin-bottom: 20px;
+}
+
+.type {
+    display: block;
+    color: #212121;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-image: url("../img/red-15x15.svg");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 2px;
+    background-size: 15px 15px;
+    padding-left: 25px;
+    line-height: 1.2;
+    padding-left: 25px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.type.collapsed {
+    display: block;
+    color: #212121;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 300;
+    background-image: url("../img/grey-15x15.svg");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 2px;
+    background-size: 15px 15px;
+    padding-left: 25px;
+    line-height: 1.2;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.tabl {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.tabl h5 {
+    font-weight: 300;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.attention {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    background: #fff;
+    display: none;
+}
+
+.tabl .zadanie {
+    font-weight: 300;
+    padding-left: 30px;
+    background: url("../img/i-blue.svg") no-repeat;
+    background-size: 16px;
+    line-height: 1.1;
+}
+
+.tabl .error {
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: red;
+    padding-left: 30px;
+    background: url("../img/i-red.svg") no-repeat;
+    background-size: 22px;
+}
+
+.my-label-select {
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+select.my-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none !important;
+    display: inline-block;
+    height: auto;
+    padding: 8px 12px;
+    font-weight: 300;
+    font-size: 14px;
+    background-image: url("../img/down-arrow.svg");
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position-x: right 15px;
+    background-position-y: center;
+    background-size: 12px 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+input.my-select {
+    display: inline-block;
+    height: auto;
+    padding: 8px 12px;
+    font-weight: 300;
+    font-size: 14px;
+    background: #fff;
+    background-size: 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: block;
+    text-align: center;
+    padding: 7px 15px;
+    background: #80bdff;
+    font-weight: 500;
+    color: #fff;
+}
+
+.value {
+    display: block;
+    text-align: center;
+    padding: 5px 15px;
+    border: 1px solid #80bdff;
+    line-height: 1.2;
+    background: #fff;
+}
+
+.value:nth-child(2) {
+    display: block;
+    text-align: center;
+    padding: 5px 15px;
+    border: 1px solid #80bdff;
+    border-top: none;
+    line-height: 1.2;
+}
+
+.row.no-gutters .col-4:nth-child(2) .value {
+    border-left: none;
+    border-right: none;
+}
+
+.rub {
+    height: 13px;
+    vertical-align: -1px;
+    padding-left: 5px;
+}
+
+.cost-value {
+    display: block;
+    text-align: center;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #80bdff;
+    line-height: 1.2;
+    font-weight: 500;
+    background: #fff;
+}
+
+#item-count.cost-value,
+#pages.cost-value {}
+
+.x {
+    display: block;
+    height: 16px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+}
+
+.my-form-check {
+    padding: 8px 15px;
+    background: #80bdff;
+    margin-bottom: 20px;
+}
+
+.my-form-check input.form-check-input {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 0px;
+}
+
+.my-form-check label.form-check-label {
+    color: #fff;
+    font-weight: 500;
+    margin-left: 20px;
+    line-height: 1.2;
+}
+
+.cost {
+    font-weight: 500;
+    text-align: right;
+}
+
+.post-print {}
+
+.print-vizible {
+    display: none;
+}
+
+.print-vizible .value {
+    display: block;
+    text-align: center;
+    padding: 8px 15px;
+    border: 1px solid #80bdff;
+    line-height: 1.2;
+    background: #fff;
+}
+
+.print-vizible .value:nth-child(2) {
+    display: block;
+    text-align: center;
+    padding: 5px 15px;
+    border: 1px solid #80bdff;
+    border-top: none;
+    line-height: 1.2;
+}
+
+#layer_out {
+    display: none;
+}
+
+.lam_cover,
+.lam_block,
+.vkladka {
+    padding-top: 27px;
+}
+
+.vkladka,
+.vkladka_hide,
+.lam_cover,
+.lam_block,
+.block_01,
+.block_02,
+.block_03,
+.block_04 {
+    display: none;
+}
+
+.polosa {
+    border-top: 1px solid #80BDFF;
+    padding-top: 5px;
+}
+
+.badge-success {
+    background: #80bdff;
+    margin-bottom: 2%;
+    padding-top: 5px;
+}
+
+.mar {
+    margin-top: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.warn {
+    display: inline-block;
+    height: auto;
+    padding: 8px 12px;
+    font-weight: 300;
+    font-size: 14px;
+    background: #fff;
+    background-size: 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    color: #444444;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid red;
+    width: 100px;
+}
